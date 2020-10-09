@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .showMe {
+            animation-name: showMe;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes showMe {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+            
+        }
+        .colorFade {
+            background-color: transparent;
+            position: relative;
+        }
+        .colorChange {
+            animation-name: change;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+        }
+        @keyframes change {
+            0%{
+                background-color: transparent;
+                left: -10%;
+            }
+            100% {
+                background-color: aqua;
+                left: 0;
+            }
+            
+        }
+        .levelFive {
+            animation-name: levelFive;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes levelFive {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 90%;
+            }
+            
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 20px;
+            grid-template-areas:
+                "One One two two three three three"
+                "One One two two three three three"
+                "four four two two seven six six"
+                "four four five five five six six"
+                "four four five five five six six";
+            height: 100%;
+            width: 100%;
+        }
+        .One { grid-area: One;}
+        .two { grid-area: two; }
+        .three { grid-area: three; }
+        .four { grid-area: four; }
+        .five { grid-area: five; }
+        .six { grid-area: six; }
+        .seven { grid-area: seven; }
+
+        .grid-container div:hover{
+            transform: scale(1.1);
+            background-blend-mode: darken;
+            background-color: rgba(0, 0, 0, 0.4);
+            box-shadow: 1px 1px 1rem 1px black;
+            transition: all ease-in-out 300ms;
+        }
+        .section-text {
+            font-family: 'Comfortaa', cursive;
+            font-size: 5rem;
+            color: white;
+            text-shadow: 1px 1px black;
+        }
+        .hiddenText {
+            opacity: 0;
+        }
+        .one-text {
+            transition: all ease-in-out 200ms;
+            opacity: 1;
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; align-items: center; height: 500vh; width: 100vw; justify-content: center;">
+        
+        
+        <div style="display: flex; width: 70vw; height: 70vh; flex-wrap: wrap;">
+            <div class="grid-container" style="position: relative;">
+            <div><h1 class="section-text" style="position: absolute; top: -105px;">The chaotic mind of a 90's baby.</h1></div>
+                <div class="One" style="background-image: url('bleach.jpg'); background-position: center; background-size: cover;"></div>
+                <div class="two" style="background-image: url('one_punch_man.jpg'); background-position: center; background-size: cover;"></div>
+                <div class="three" style="background-image: url('midoriya.jpg'); background-position: center; background-size: cover;"></div>
+                <div class="four" style="background-image: url('one_piece.jpg'); background-position: center; background-size: cover;" onmouseenter="showText()">
+                    <h2 id="testText" class="hiddenText">hello how are you doing</h2>
+                </div>
+                <div class="five"  style="background-image: url('haikyuu.jpg'); background-position: center; background-size: cover;"></div>
+                <div class="six" style="background-image: url('hunterXhunter.jpg'); background-position: center; background-size: cover;"></div>
+                <div class="seven" style="background-image: url('demon_slayer.jpg'); background-position: center; background-size: cover;"></div>
+            </div>
+        </div>
+        <!-- <div id="onlyDiv" class="colorFade" style="min-height: 10vh; max-width: 100vw; width: 60vw; height: 100vh;">
+            <img id="onlyLogo" data-src="facebook.png" style="min-width: 100px;min-height: 100px;">
+            <button id="onlyButton" style="width: 50px; height: 50px;" onclick="appear()">Press here!</button>
+            <div style="position: relative; bottom: 2%; left: 2%; width: 100px; height: 20px; background-color: white;">
+                <div id="progress-bar" class="level-one" style="width: 0; height: 100%; background-color: blueviolet;"></div>
+            </div>
+        </div> -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="myscript.js"></script>
+</body>
+</html>
